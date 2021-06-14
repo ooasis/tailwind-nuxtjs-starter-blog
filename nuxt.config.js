@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'smalltalks',
+    title: 'Small Talks',
     htmlAttrs: {
       lang: 'en',
     },
@@ -30,13 +30,29 @@ export default {
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://color-mode.nuxtjs.org/
+    '@nuxtjs/color-mode',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ['@nuxt/content'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  tailwindcss: {
+    jit: true,
+    // add '~tailwind.config` alias
+    exposeConfig: true,
+  },
+
+  colorMode: {
+    classSuffix: '',
+  },
+
+  content: {
+    fullTextSearchFields: ['title', 'description', 'slug', 'tags', 'text'],
+  },
 
   server: {
     port: 3123, // default: 3000
