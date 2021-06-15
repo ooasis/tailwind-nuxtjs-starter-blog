@@ -50,9 +50,7 @@ export default {
     classSuffix: '',
   },
 
-  content: {
-    fullTextSearchFields: ['title', 'description', 'slug', 'tags', 'text'],
-  },
+  content: {},
 
   server: {
     port: 3123, // default: 3000
