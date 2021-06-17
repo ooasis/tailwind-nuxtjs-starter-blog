@@ -37,7 +37,7 @@
 export default {
   props: {
     tags: {
-      type: Map,
+      type: Object,
       required: true,
     },
   },
