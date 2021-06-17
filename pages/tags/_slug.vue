@@ -3,37 +3,40 @@
     <div class="divide-y divide-gray-200 dark:divide-gray-700">
       <page-title :title="`Tag: ${selectedTag}`" />
       <list-view :articles="articles" />
-      <div class="pt-6 pb-8 space-y-2 md:space-y-5">
-        <nav class="flex justify-between">
-          <button
-            rel="previous"
-            class="cursor-auto disabled:opacity-50"
-            disabled="{!prevPage}"
-          >
-            Previous
-          </button>
-          <span> 1 of 20 </span>
-          <button
-            rel="next"
-            class="cursor-auto disabled:opacity-50"
-            disabled="{!nextPage}"
-          >
-            Next
-          </button>
-        </nav>
-      </div>
+      <prev-next-page
+        :target="target"
+        :cur-page="curPage"
+        :has-next="hasNext"
+        :has-prev="hasPrev"
+        :page-size="pageSize"
+      />
     </div>
   </div>
 </template>
 <script>
+const pageSize = 1
+
 export default {
-  async asyncData({ $content, params }) {
-    const articles = await $content('blog')
+  async asyncData({ $content, params, query }) {
+    const curPage = query.page ? parseInt(query.page) : 1
+    const target = `/tags/${params.slug}`
+    const raw = await $content('blog')
       .where({ tags: { $contains: params.slug } })
+      .only(['title', 'description', 'tags', 'slug', 'createdAt'])
+      .sortBy('createdAt', 'desc')
+      .skip((curPage - 1) * pageSize)
+      .limit(pageSize + 1)
       .fetch()
+    const hasNext = raw && raw.length > pageSize
+    const hasPrev = curPage > 1
 
     return {
-      articles,
+      target,
+      curPage,
+      hasPrev,
+      hasNext,
+      pageSize,
+      articles: hasNext ? raw.slice(0, -1) : raw,
       selectedTag: params.slug,
     }
   },

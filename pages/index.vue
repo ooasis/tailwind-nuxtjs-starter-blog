@@ -20,10 +20,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import PageTitle from '~/components/PageTitle.vue'
-
-export default Vue.extend({
+export default {
   components: { PageTitle },
   async asyncData({ $content }) {
     const articles = await $content('blog')
@@ -36,5 +33,5 @@ export default Vue.extend({
       articles,
     }
   },
-})
+}
 </script>

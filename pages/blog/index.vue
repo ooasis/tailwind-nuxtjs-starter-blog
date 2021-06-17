@@ -7,46 +7,48 @@
         </page-title>
         <list-view :articles="articles" />
       </div>
-      <div class="pt-6 pb-8 space-y-2 md:space-y-5">
-        <nav class="flex justify-between">
-          <button
-            rel="previous"
-            class="cursor-auto disabled:opacity-50"
-            disabled="{!prevPage}"
-          >
-            Previous
-          </button>
-          <span> 1 of 20 </span>
-          <button
-            rel="next"
-            class="cursor-auto disabled:opacity-50"
-            disabled="{!nextPage}"
-          >
-            Next
-          </button>
-        </nav>
-      </div>
+      <prev-next-page
+        v-if="!searchQuery"
+        :target="target"
+        :cur-page="curPage"
+        :has-next="hasNext"
+        :has-prev="hasPrev"
+        :page-size="pageSize"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import ListView from '~/components/ListView.vue'
+const pageSize = 1
+
 export default {
-  components: { ListView },
-  async asyncData({ $content }) {
-    const articles = await $content('blog')
+  async asyncData({ $content, query }) {
+    const curPage = query.page ? parseInt(query.page) : 1
+    const raw = await $content('blog')
       .only(['title', 'description', 'tags', 'slug', 'createdAt'])
       .sortBy('createdAt', 'desc')
-      .limit(25)
+      .skip((curPage - 1) * pageSize)
+      .limit(pageSize + 1)
       .fetch()
+
+    const hasNext = raw && raw.length > pageSize
+    const hasPrev = curPage > 1
+
     return {
-      articles,
+      searchQuery: null,
+      target: '/blog',
+      curPage,
+      hasPrev,
+      hasNext,
+      pageSize,
+      articles: hasNext ? raw.slice(0, -1) : raw,
     }
   },
   methods: {
-    refreshArticles(articles) {
+    refreshArticles(articles, searchQuery) {
       this.articles = articles
+      this.searchQuery = searchQuery
     },
   },
 }

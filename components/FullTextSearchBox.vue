@@ -54,10 +54,10 @@ export default {
   watch: {
     async searchQuery(searchQuery) {
       const articles = await this.$content('blog')
-        .limit(25)
+        .limit(100)
         .search(searchQuery)
         .fetch()
-      this.onUpdate(articles)
+      this.onUpdate(articles, this.searchQuery)
     },
   },
 }
