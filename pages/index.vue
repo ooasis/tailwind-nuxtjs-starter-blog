@@ -1,10 +1,7 @@
 <template>
   <div>
     <div class="divide-y divide-gray-200 dark:divide-gray-700">
-      <page-title
-        title="Latest"
-        subtitle="Only for those in agreement with 1 + 1 = 10"
-      />
+      <page-title title="Latest" />
       <list-view :articles="articles" />
     </div>
     <div class="flex justify-end text-base font-medium leading-6">
@@ -20,13 +17,14 @@
 </template>
 
 <script>
+const pageSize = 25
+
 export default {
-  components: { PageTitle },
   async asyncData({ $content }) {
     const articles = await $content('blog')
       .only(['title', 'description', 'tags', 'slug', 'createdAt'])
       .sortBy('createdAt', 'desc')
-      .limit(10)
+      .limit(pageSize)
       .fetch()
 
     return {
