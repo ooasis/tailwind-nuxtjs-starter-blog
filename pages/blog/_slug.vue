@@ -1,10 +1,7 @@
 <template>
   <div>
     <article>
-      <div
-        class="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700"
-        style="grid-template-rows: auto 1fr"
-      >
+      <div class="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
         <header class="pt-6 xl:pb-6">
           <div class="space-y-1 text-center">
             <dl class="space-y-10">
@@ -33,18 +30,7 @@
             </div>
           </div>
         </header>
-        <single-view :article="article" />
-        <footer>
-          <prev-next-article :prev="prev" :next="next" />
-          <div class="pt-4 xl:pt-8">
-            <a
-              href="/blog"
-              class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              &larr; Back to the blog
-            </a>
-          </div>
-        </footer>
+        <single-view :article="article"  :prev="prev" :next="next" />
       </div>
     </article>
   </div>

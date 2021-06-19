@@ -53,11 +53,13 @@ export default {
   },
   watch: {
     async searchQuery(searchQuery) {
-      const articles = await this.$content('blog')
-        .limit(100)
-        .search(searchQuery)
-        .fetch()
-      this.onUpdate(articles, this.searchQuery)
+      if (searchQuery.length > 3) {
+        const articles = await this.$content('blog')
+          .limit(100)
+          .search(searchQuery)
+          .fetch()
+        this.onUpdate(articles, this.searchQuery)
+      }
     },
   },
 }
