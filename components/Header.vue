@@ -21,12 +21,15 @@
         </a>
       </div>
     </div>
+    <mobile-nav />
   </header>
 </template>
 <script>
 import site from '../config/site.config'
+import MobileNav from './MobileNav.vue'
 
 export default {
+  components: { MobileNav },
   data() {
     return {
       site,
