@@ -22,8 +22,8 @@ export default {
     const target = `/tags/${params.slug}`
     const raw = await $content('blog')
       .where({ tags: { $contains: params.slug } })
-      .only(['title', 'description', 'tags', 'slug', 'createdAt'])
-      .sortBy('createdAt', 'desc')
+      .only(['title', 'description', 'tags', 'slug', 'updatedAt'])
+      .sortBy('updatedAt', 'desc')
       .skip((curPage - 1) * pageSize)
       .limit(pageSize + 1)
       .fetch()

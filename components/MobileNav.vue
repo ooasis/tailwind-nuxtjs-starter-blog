@@ -49,8 +49,8 @@
       ></button>
       <nav class="fixed h-full mt-8">
         <div v-for="link in links" :key="link.title" class="px-12 py-4">
-          <a
-            :href="link.href"
+          <NuxtLink
+            :to="link.href"
             class="
               text-xl
               font-bold
@@ -61,7 +61,7 @@
             @click="onToggleNav"
           >
             {{ link.title }}
-          </a>
+          </NuxtLink>
         </div>
       </nav>
     </div>

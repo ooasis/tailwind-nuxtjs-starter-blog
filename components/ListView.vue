@@ -13,12 +13,12 @@
         <div class="space-y-3 xl:col-span-3">
           <div>
             <h3 class="text-2xl font-bold leading-8 tracking-tight">
-              <a
-                :href="`/blog/${article.slug}`"
+              <NuxtLink
+                :to="`/blog/${article.slug}`"
                 class="text-gray-900 dark:text-gray-100"
               >
                 {{ article.title }}
-              </a>
+              </NuxtLink>
             </h3>
             <tags :article="article" />
           </div>

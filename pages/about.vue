@@ -23,7 +23,6 @@
 export default {
   async asyncData({ $content }) {
     const article = await $content('other/about').fetch()
-
     return {
       article,
     }

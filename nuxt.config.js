@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Small Talks',
+    title: 'SmallTalk',
     htmlAttrs: {
       lang: 'en',
     },
@@ -17,7 +17,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/siteutils.js'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -50,7 +50,9 @@ export default {
     classSuffix: '',
   },
 
-  content: {},
+  content: {
+    dir: process.env.CONTENT_DIR || 'content',
+  },
 
   server: {
     port: 3123, // default: 3000

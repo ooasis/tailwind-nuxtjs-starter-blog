@@ -6,10 +6,10 @@
         class="cursor-auto disabled:opacity-50"
         :disabled="!hasPrev"
       >
-        <a
+        <NuxtLink
           v-if="hasPrev"
-          :href="`${curPage == 2 ? target : target + '?page=' + (curPage - 1)}`"
-          >Previous</a
+          :to="`${curPage == 2 ? target : target + '?page=' + (curPage - 1)}`"
+          >Previous Page</NuxtLink
         >
       </button>
       <span> Page: {{ curPage }} </span>
@@ -18,7 +18,9 @@
         class="cursor-auto disabled:opacity-50"
         :disabled="!hasNext"
       >
-        <a v-if="hasNext" :href="`${target}?page=${curPage + 1}`">Next</a>
+        <NuxtLink v-if="hasNext" :to="`${target}?page=${curPage + 1}`"
+          >Next Page</NuxtLink
+        >
       </button>
     </nav>
   </div>

@@ -53,13 +53,12 @@ export default {
   },
   watch: {
     async searchQuery(searchQuery) {
-      if (searchQuery.length > 3) {
-        const articles = await this.$content('blog')
-          .limit(100)
-          .search(searchQuery)
-          .fetch()
-        this.onUpdate(articles, this.searchQuery)
-      }
+      const articles = await this.$content('blog')
+        .only(['title', 'description', 'tags', 'slug', 'updatedAt'])
+        .sortBy('updatedAt', 'desc')
+        .search(searchQuery)
+        .fetch()
+      this.onUpdate(articles, this.searchQuery)
     },
   },
 }

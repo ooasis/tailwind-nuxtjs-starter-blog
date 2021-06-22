@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-wrap">
-    <a
+    <NuxtLink
       v-for="tag in article.tags"
       :key="tag"
-      :href="`/tags/${tag}`"
+      :to="`/tags/${tag}`"
       class="
         mr-3
         text-sm
@@ -15,7 +15,7 @@
       "
     >
       {{ tag }}
-    </a>
+    </NuxtLink>
   </div>
 </template>
 <script>

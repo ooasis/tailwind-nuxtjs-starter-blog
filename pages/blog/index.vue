@@ -26,8 +26,8 @@ export default {
   async asyncData({ $content, query }) {
     const curPage = query.page ? parseInt(query.page) : 1
     const raw = await $content('blog')
-      .only(['title', 'description', 'tags', 'slug', 'createdAt'])
-      .sortBy('createdAt', 'desc')
+      .only(['title', 'description', 'tags', 'slug', 'updatedAt'])
+      .sortBy('updatedAt', 'desc')
       .skip((curPage - 1) * pageSize)
       .limit(pageSize + 1)
       .fetch()
