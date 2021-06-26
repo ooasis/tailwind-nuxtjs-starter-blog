@@ -3,7 +3,7 @@
     <div class="flex flex-col items-center mt-16">
       <div class="flex mb-3 space-x-4"></div>
       <div class="flex mb-2 space-x-2 text-sm text-gray-500 dark:text-gray-400">
-        <div>{{ author }}</div>
+        <div>{{ $site.author }}</div>
         <div>{{ ` • ` }}</div>
         <div>{{ `© ${new Date().getFullYear()}` }}</div>
       </div>
@@ -34,16 +34,5 @@ export default {
       default: true,
     },
   },
-  data() {
-    return {
-      author: null,
-    }
-  },
-  // async fetch() {
-  //   const siteConfig = await import(
-  //     '../' + (process.env.SITE_CONFIG_DIR || 'sample_config')
-  //   )
-  //   this.author = siteConfig.author
-  // },
 }
 </script>

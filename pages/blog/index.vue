@@ -47,7 +47,7 @@ export default {
   },
   head() {
     return this.$seo({
-      title: 'All Blogs',
+      title: `Blogs${this.curPage > 1 ? ' - ' + this.curPage : ''}`,
     })
   },
   watchQuery: ['page'],

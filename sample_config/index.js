@@ -1,4 +1,5 @@
 module.exports = {
+  title: 'Tailwind Nuxtjs Starter Blog',
   author: 'SmallTalk',
   seo: {
     baseUrl: 'http://nuxtjs-tailwind-blog-starter.com',

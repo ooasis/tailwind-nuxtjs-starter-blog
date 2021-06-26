@@ -42,7 +42,9 @@ export default {
   },
   head() {
     return this.$seo({
-      title: this.selectedTag,
+      title: `${this.selectedTag}${
+        this.curPage > 1 ? ' - ' + this.curPage : ''
+      }`,
     })
   },
   watchQuery: ['page'],
