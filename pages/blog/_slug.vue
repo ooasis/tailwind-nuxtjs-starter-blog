@@ -30,7 +30,7 @@
             </div>
           </div>
         </header>
-        <single-view :article="article"  :prev="prev" :next="next" />
+        <single-view :article="article" :prev="prev" :next="next" />
       </div>
     </article>
   </div>
@@ -50,6 +50,11 @@ export default {
       prev,
       next,
     }
+  },
+  head() {
+    return this.$seo({
+      title: this.article.title,
+    })
   },
 }
 </script>

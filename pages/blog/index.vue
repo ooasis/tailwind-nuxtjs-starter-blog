@@ -45,6 +45,12 @@ export default {
       articles: hasNext ? raw.slice(0, -1) : raw,
     }
   },
+  head() {
+    return this.$seo({
+      title: 'All Blogs',
+    })
+  },
+  watchQuery: ['page'],
   methods: {
     refreshArticles(articles, searchQuery) {
       this.articles = articles

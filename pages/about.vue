@@ -27,5 +27,10 @@ export default {
       article,
     }
   },
+  head() {
+    return this.$seo({
+      title: 'About',
+    })
+  },
 }
 </script>

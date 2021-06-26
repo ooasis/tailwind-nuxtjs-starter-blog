@@ -31,5 +31,10 @@ export default {
       articles,
     }
   },
+  head() {
+    return this.$seo({
+      title: 'Home Page',
+    })
+  },
 }
 </script>

@@ -2,7 +2,7 @@
   <div class="flex flex-wrap">
     <NuxtLink
       v-for="tag in article.tags"
-      :key="tag"
+      :key="`${article.title}-${tag}`"
       :to="`/tags/${tag}`"
       class="
         mr-3

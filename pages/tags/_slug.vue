@@ -40,5 +40,11 @@ export default {
       selectedTag: params.slug,
     }
   },
+  head() {
+    return this.$seo({
+      title: this.selectedTag,
+    })
+  },
+  watchQuery: ['page'],
 }
 </script>

@@ -1,61 +1,65 @@
-export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: 'SmallTalk',
-    htmlAttrs: {
-      lang: 'en',
+export default async () => {
+  const siteConfig = await import(
+    './' + (process.env.SITE_CONFIG_DIR || 'sample_config')
+  )
+  return {
+    // Global page headers: https://go.nuxtjs.dev/config-head
+    head: {
+      htmlAttrs: {
+        lang: siteConfig.lang,
+      },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      ],
     },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+
+    // Global CSS: https://go.nuxtjs.dev/config-css
+    css: [],
+
+    // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
+    plugins: ['~/plugins/siteutils.js'],
+
+    // Auto import components: https://go.nuxtjs.dev/config-components
+    components: true,
+
+    // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+    buildModules: [
+      // https://go.nuxtjs.dev/typescript
+      '@nuxt/typescript-build',
+      // https://go.nuxtjs.dev/stylelint
+      '@nuxtjs/stylelint-module',
+      // https://go.nuxtjs.dev/tailwindcss
+      '@nuxtjs/tailwindcss',
+      // https://color-mode.nuxtjs.org/
+      '@nuxtjs/color-mode',
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-  },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+    // Modules: https://go.nuxtjs.dev/config-modules
+    modules: ['@nuxt/content', '~/modules/seo'],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/siteutils.js'],
+    // Build Configuration: https://go.nuxtjs.dev/config-build
+    build: {},
 
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+    tailwindcss: {
+      jit: true,
+      // add '~tailwind.config` alias
+      exposeConfig: true,
+    },
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
-    // https://go.nuxtjs.dev/stylelint
-    '@nuxtjs/stylelint-module',
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
-    // https://color-mode.nuxtjs.org/
-    '@nuxtjs/color-mode',
-  ],
+    colorMode: {
+      classSuffix: '',
+    },
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxt/content'],
+    content: {
+      dir: process.env.CONTENT_DIR || 'sample_content',
+    },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+    seo: siteConfig.seo,
 
-  tailwindcss: {
-    jit: true,
-    // add '~tailwind.config` alias
-    exposeConfig: true,
-  },
-
-  colorMode: {
-    classSuffix: '',
-  },
-
-  content: {
-    dir: process.env.CONTENT_DIR || 'content',
-  },
-
-  server: {
-    port: 3123, // default: 3000
-    host: '0.0.0.0', // default: localhost
-  },
+    server: {
+      port: 3123, // default: 3000
+      host: '0.0.0.0', // default: localhost
+    },
+  }
 }

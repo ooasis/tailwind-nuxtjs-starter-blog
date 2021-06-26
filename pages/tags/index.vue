@@ -41,5 +41,10 @@ export default {
       tags,
     }
   },
+  head() {
+    return this.$seo({
+      title: 'Tags',
+    })
+  },
 }
 </script>
