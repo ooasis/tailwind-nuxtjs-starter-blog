@@ -17,7 +17,7 @@
 </template>
 
 <script>
-const pageSize = 25
+const pageSize = 10
 
 export default {
   async asyncData({ $content }) {

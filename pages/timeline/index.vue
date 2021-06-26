@@ -1,0 +1,60 @@
+<template>
+  <div>
+    <div
+      class="
+        flex flex-col
+        items-start
+        justify-start
+        divide-y divide-gray-200
+        dark:divide-gray-700
+        md:justify-center
+        md:items-center
+        md:divide-y-0
+        md:flex-row
+        md:space-x-6
+        md:mt-24
+      "
+    >
+      <page-title title="Timeline" />
+      <timeline :timelines="timelines" />
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  async asyncData({ $content }) {
+    const articles = await $content('blog').only('updatedAt').fetch()
+
+    const timelines = articles
+      .flatMap((r) => {
+        return r.updatedAt.substring(0, 7)
+      })
+      .reduce((m, a) => {
+        if (a in m) {
+          m[a] += 1
+        } else {
+          m[a] = 1
+        }
+        return m
+      }, {})
+
+    const sortedTimelines = Object.keys(timelines)
+      .sort()
+      .reverse()
+      .reduce(function (result, key) {
+        result[key] = timelines[key]
+        return result
+      }, {})
+
+    return {
+      timelines: sortedTimelines,
+    }
+  },
+  head() {
+    return this.$seo({
+      title: 'Timeline',
+    })
+  },
+}
+</script>

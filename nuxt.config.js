@@ -14,6 +14,8 @@ export default async () => {
       ],
     },
 
+    target: 'static',
+
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [],
 
@@ -39,7 +41,13 @@ export default async () => {
     modules: ['@nuxt/content', '~/modules/seo'],
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
-    build: {},
+    build: {
+      extend(config, ctx) {
+        if (ctx.isDev) {
+          config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
+        }
+      },
+    },
 
     tailwindcss: {
       jit: true,

@@ -293,7 +293,7 @@ module.exports = function (moduleOptions) {
     }
 
     this.addPlugin({
-      src: path.resolve(__dirname, '../templates/seo_plugin.js'),
+      src: path.resolve(__dirname, 'seo_plugin.js'),
       fileName: 'Nuxt-Seo.js',
       options: pluginOptions,
     })

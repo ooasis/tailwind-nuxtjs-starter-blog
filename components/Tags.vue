@@ -3,7 +3,7 @@
     <NuxtLink
       v-for="tag in article.tags"
       :key="`${article.title}-${tag}`"
-      :to="`/tags/${tag}`"
+      :to="`/tag/${tag}`"
       class="
         mr-3
         text-sm

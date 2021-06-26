@@ -1,8 +1,12 @@
 <template>
   <div class="flex flex-wrap max-w-lg">
-    <div v-for="tag in Object.keys(tags)" :key="tag" class="mt-2 mb-2 mr-5">
+    <div
+      v-for="timeline in Object.keys(timelines)"
+      :key="timeline"
+      class="mt-2 mb-2 mr-5"
+    >
       <NuxtLink
-        :to="`/tag/${tag}`"
+        :to="`/timeline/${timeline}`"
         class="
           mr-3
           text-sm
@@ -13,10 +17,10 @@
           dark:hover:text-blue-400
         "
       >
-        {{ tag }}
+        {{ timeline }}
       </NuxtLink>
       <NuxtLink
-        :to="`/tag/${tag}`"
+        :to="`/timeline/${timeline}`"
         class="
           -ml-2
           text-sm
@@ -26,7 +30,7 @@
           dark:text-gray-300
         "
       >
-        {{ tags[tag] }}
+        {{ timelines[timeline] }}
       </NuxtLink>
     </div>
   </div>
@@ -35,7 +39,7 @@
 <script>
 export default {
   props: {
-    tags: {
+    timelines: {
       type: Object,
       required: true,
     },

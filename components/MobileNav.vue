@@ -78,8 +78,12 @@ export default {
           href: '/blog',
         },
         {
-          title: 'Tags',
-          href: '/tags',
+          title: 'Tag',
+          href: '/tag',
+        },
+        {
+          title: 'Timeline',
+          href: '/timeline',
         },
         {
           title: 'About',

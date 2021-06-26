@@ -14,12 +14,12 @@
   </div>
 </template>
 <script>
-const pageSize = 25
+const pageSize = 10
 
 export default {
   async asyncData({ $content, params, query }) {
     const curPage = query.page ? parseInt(query.page) : 1
-    const target = `/tags/${params.slug}`
+    const target = `/tag/${params.slug}`
     const raw = await $content('blog')
       .where({ tags: { $contains: params.slug } })
       .only(['title', 'description', 'tags', 'slug', 'updatedAt'])
