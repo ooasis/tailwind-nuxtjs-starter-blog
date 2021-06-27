@@ -72,10 +72,10 @@
       <prev-next-article :prev="prev" :next="next" />
       <div class="pt-4 xl:pt-8">
         <NuxtLink
-          to="/blog"
+          to="/blogs"
           class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
         >
-          &larr; Back to the blog
+          &larr; Back to the blogs
         </NuxtLink>
       </div>
     </footer>
