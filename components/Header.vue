@@ -31,15 +31,15 @@ export default {
       links: [
         {
           title: 'Blog',
-          href: '/blog',
+          href: '/blogs',
         },
         {
           title: 'Tag',
-          href: '/tag',
+          href: '/tags',
         },
         {
           title: 'Timeline',
-          href: '/timeline',
+          href: '/timelines',
         },
         {
           title: 'About',

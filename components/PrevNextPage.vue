@@ -8,7 +8,7 @@
       >
         <NuxtLink
           v-if="hasPrev"
-          :to="`${curPage == 2 ? target : target + '?page=' + (curPage - 1)}`"
+          :to="`${curPage == 2 ? target : target + '__' + (curPage - 1)}`"
           >Previous Page</NuxtLink
         >
       </button>
@@ -18,7 +18,7 @@
         class="cursor-auto disabled:opacity-50"
         :disabled="!hasNext"
       >
-        <NuxtLink v-if="hasNext" :to="`${target}?page=${curPage + 1}`"
+        <NuxtLink v-if="hasNext" :to="`${target}__${curPage + 1}`"
           >Next Page</NuxtLink
         >
       </button>

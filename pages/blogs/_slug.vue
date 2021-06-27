@@ -23,8 +23,8 @@
 const pageSize = 10
 
 export default {
-  async asyncData({ $content, query }) {
-    const curPage = query.page ? parseInt(query.page) : 1
+  async asyncData({ $content, $parseSlugWithPaging, params }) {
+    const [subTarget, curPage] = $parseSlugWithPaging(params.slug)
     const raw = await $content('blog')
       .only(['title', 'description', 'tags', 'slug', 'updatedAt'])
       .sortBy('updatedAt', 'desc')
@@ -37,7 +37,7 @@ export default {
 
     return {
       searchQuery: null,
-      target: '/blog',
+      target: `/blogs/${subTarget}`,
       curPage,
       hasPrev,
       hasNext,

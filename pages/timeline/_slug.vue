@@ -17,11 +17,10 @@
 const pageSize = 10
 
 export default {
-  async asyncData({ $content, params, query }) {
-    const startDate = new Date(params.slug + '-01')
-    const endDate = new Date(params.slug + '-31')
-    const curPage = query.page ? parseInt(query.page) : 1
-    const target = `/timelines/${params.slug}`
+  async asyncData({ $content, $parseSlugWithPaging, params }) {
+    const [subTarget, curPage] = $parseSlugWithPaging(params.slug)
+    const startDate = new Date(subTarget + '-01')
+    const endDate = new Date(subTarget + '-31')
     const raw = await $content('blog')
       .only(['title', 'description', 'tags', 'slug', 'updatedAt'])
       .where({
@@ -35,13 +34,13 @@ export default {
     const hasPrev = curPage > 1
 
     return {
-      target,
+      target: `${subTarget}`,
       curPage,
       hasPrev,
       hasNext,
       pageSize,
       articles: hasNext ? raw.slice(0, -1) : raw,
-      selectedTag: params.slug,
+      selectedTag: subTarget,
     }
   },
   head() {

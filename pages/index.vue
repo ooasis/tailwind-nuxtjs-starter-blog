@@ -6,7 +6,7 @@
     </div>
     <div class="flex justify-end text-base font-medium leading-6">
       <NuxtLink
-        to="/blog"
+        to="/blogs"
         class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
         aria-label="all posts"
       >

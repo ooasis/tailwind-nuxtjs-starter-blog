@@ -17,11 +17,10 @@
 const pageSize = 10
 
 export default {
-  async asyncData({ $content, params, query }) {
-    const curPage = query.page ? parseInt(query.page) : 1
-    const target = `/tag/${params.slug}`
+  async asyncData({ $content, $parseSlugWithPaging, params }) {
+    const [subTarget, curPage] = $parseSlugWithPaging(params.slug)
     const raw = await $content('blog')
-      .where({ tags: { $contains: params.slug } })
+      .where({ tags: { $contains: subTarget } })
       .only(['title', 'description', 'tags', 'slug', 'updatedAt'])
       .sortBy('updatedAt', 'desc')
       .skip((curPage - 1) * pageSize)
@@ -31,13 +30,13 @@ export default {
     const hasPrev = curPage > 1
 
     return {
-      target,
+      target: `${subTarget}`,
       curPage,
       hasPrev,
       hasNext,
       pageSize,
       articles: hasNext ? raw.slice(0, -1) : raw,
-      selectedTag: params.slug,
+      selectedTag: subTarget,
     }
   },
   head() {
