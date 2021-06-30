@@ -1,7 +1,7 @@
+import createFeed from './lib/feed'
+
 export default async () => {
-  const siteConfig = await import(
-    './' + (process.env.SITE_CONFIG_DIR || 'sample_config')
-  )
+  const siteConfig = await import(`./${process.env.MY_SITE || 'sample'}/config`)
   return {
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
@@ -38,7 +38,12 @@ export default async () => {
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
-    modules: ['@nuxt/content', '~/modules/seo'],
+    modules: [
+      '@nuxt/content',
+      '@nuxtjs/sitemap',
+      '@nuxtjs/feed',
+      '~/modules/seo',
+    ],
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
@@ -60,10 +65,30 @@ export default async () => {
     },
 
     content: {
-      dir: process.env.CONTENT_DIR || 'sample_content',
+      dir: `${process.env.MY_SITE || 'sample'}/content`,
+    },
+
+    generate: {
+      dir: `${process.env.MY_SITE || 'sample'}/dist`,
     },
 
     seo: siteConfig.seo,
+
+    sitemap: {
+      hostname: 'http://192.168.4.26:3123',
+      gzip: true,
+      exclude: ['/about'],
+    },
+
+    feed: [
+      {
+        path: '/feed.xml', // The route to your feed.
+        create: createFeed,
+        cacheTime: 1000 * 60 * 15, // How long should the feed be cached
+        type: 'rss2', // Can be: rss2, atom1, json1
+        data: siteConfig,
+      },
+    ],
 
     server: {
       port: 3123, // default: 3000

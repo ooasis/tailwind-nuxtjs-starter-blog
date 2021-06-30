@@ -5,7 +5,6 @@ export default async (_, inject) => {
 
   inject('parseSlugWithPaging', (slug) => {
     let ret = [slug || 'index', 1]
-    console.log('slug is %o', slug)
     if (slug && slug.includes('__')) {
       const parts = slug.split('__')
       const page = parseInt(parts[parts.length - 1])
@@ -13,13 +12,11 @@ export default async (_, inject) => {
         ret = [parts.slice(0, parts.length - 1).join('__'), page]
       }
     }
-    console.log('return  is %s', ret)
     return ret
   })
 
-  const configDir = process.env.SITE_CONFIG_DIR || 'sample_config'
-  // eslint-disable-next-line no-console
-  // console.info(`About to load site config from ${configDir}`)
-  const siteConfig = await import(`~/${configDir}/index.js`)
+  // interesting, you cannot combine the expression to eliminate variable configDir
+  const configDir = `${process.env.MY_SITE || 'sample'}/config/index.js`
+  const siteConfig = await import(`~/${configDir}`)
   inject('site', siteConfig)
 }
