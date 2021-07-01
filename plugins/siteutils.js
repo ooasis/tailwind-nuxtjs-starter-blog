@@ -1,4 +1,6 @@
-export default async (_, inject) => {
+import siteConfig from '../mysite/config'
+
+export default (_, inject) => {
   inject('shortenTitle', (title, maxLen = 20) =>
     title.length > maxLen ? `${title.substring(0, maxLen)} ...` : title
   )
@@ -15,8 +17,5 @@ export default async (_, inject) => {
     return ret
   })
 
-  // interesting, you cannot combine the expression to eliminate variable configDir
-  const configDir = `${process.env.MY_SITE || 'sample'}/config/index.js`
-  const siteConfig = await import(`~/${configDir}`)
   inject('site', siteConfig)
 }

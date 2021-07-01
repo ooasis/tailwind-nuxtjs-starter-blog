@@ -1,5 +1,5 @@
-const Vue = require('vue')
-const debug = require('debug')
+import Vue from 'vue'
+import debug from 'debug'
 const deb = debug('nuxt:seo:debug')
 
 const nuxtSeo = <%= serialize(options.func) %>

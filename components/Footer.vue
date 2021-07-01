@@ -12,14 +12,9 @@
         class="mb-8 text-sm text-gray-500 dark:text-gray-400"
       >
         Powered by:
-        <a href="https://github.com/smalltalk/tailwind-nuxtjs-starter-blog">
-          tailwind-nuxtjs-starter-blog
+        <a href="https://github.com/ooasis/tailwind-nuxtjs-starter-blog">
+          Tailwind Nuxt Starter Blog
         </a>
-        [ Inspired by
-        <a href="https://github.com/timlrx/tailwind-nextjs-starter-blog"
-          >tailwind-nextjs-starter-blog</a
-        >
-        ]
       </div>
     </div>
   </footer>

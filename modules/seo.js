@@ -1,5 +1,5 @@
-const path = require('path')
-const debug = require('debug')
+import path from 'path'
+import debug from 'debug'
 
 const log = debug('nuxt:seo:log')
 const deb = debug('nuxt:seo:debug')
@@ -302,8 +302,7 @@ module.exports = function (moduleOptions) {
   })
 }
 
-module.exports.meta = require('../package.json')
-
+// module.exports.meta = require('../package.json')
 module.exports.defaults = defaults
 module.exports.createTitle = createTitle
 module.exports.createMeta = createMeta

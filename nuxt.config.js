@@ -1,7 +1,7 @@
 import createFeed from './lib/feed'
+import siteConfig from './mysite/config'
 
-export default async () => {
-  const siteConfig = await import(`./${process.env.MY_SITE || 'sample'}/config`)
+export default () => {
   return {
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
@@ -15,6 +15,10 @@ export default async () => {
     },
 
     target: 'static',
+
+    env: {
+      MY_SITE: process.env.MY_SITE,
+    },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [],
@@ -51,11 +55,16 @@ export default async () => {
         if (ctx.isDev) {
           config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
         }
+        // this is not necessary any more
+        // config.module.rules.push({
+        //   test: /\.md$/i,
+        //   loader: 'ignore-loader',
+        // })
       },
     },
 
     tailwindcss: {
-      jit: true,
+      // jit: true,
       // add '~tailwind.config` alias
       exposeConfig: true,
     },
