@@ -20,6 +20,7 @@
           {{ link.title }}
         </NuxtLink>
       </div>
+      <theme-switcher />
     </div>
     <mobile-nav />
   </header>
