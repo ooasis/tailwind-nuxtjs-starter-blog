@@ -1,23 +1,35 @@
-module.exports = {
-  title: 'Tailwind Nuxt Starter Blog',
-  author: 'SmallTalk',
+const title = 'Tailwind Nuxt Starter Blog'
+const description = 'A simple blog platform built on Nuxt, Tailwind'
+const author = 'ooasis'
+
+export default {
+  title,
+  author,
+  identity: 'Programmer',
+  location: 'Seattle, WA',
+  avatar: '/img/ooasis.png',
   seo: {
     baseUrl: 'http://nuxtjs-tailwind-blog-starter.com',
-    name: 'NuxtJs Tailwind Blog Starter',
-    description: 'A simple blog platform built on NuxtJs, Tailwind',
-    author: ['smalltalk', 'smalltalk@me.org'],
-    keywords: ['smalltalk', 'nuxtjs', 'vuejs', 'tailwind', 'starter', 'blog'],
+    name: title,
+    description,
+    author: [author],
+    keywords: ['nuxtjs', 'vuejs', 'tailwind', 'starter', 'blog'],
     twitter: {
-      title: 'SmallTalk',
+      title,
     },
     fb: {
-      pageId: 'smalltak',
+      pageId: 'ooasis',
     },
     openGraph: {
-      title: 'SmallTalk',
+      title: 'ooasis',
     },
   },
   feed: {
     category: 'technology',
+  },
+  social: {
+    mail: 'ooasis@gmail.com',
+    twitter: 'https://twitter.com/ooasis',
+    facebook: 'https://facebook.com/ooasis',
   },
 }

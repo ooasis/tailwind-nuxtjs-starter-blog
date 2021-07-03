@@ -16,8 +16,9 @@ export default () => {
 
     target: 'static',
 
-    env: {
-      MY_SITE: process.env.MY_SITE,
+    dir: {
+      assets: 'mysite/assets',
+      static: 'mysite/static',
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
@@ -39,6 +40,7 @@ export default () => {
       '@nuxtjs/tailwindcss',
       // https://color-mode.nuxtjs.org/
       '@nuxtjs/color-mode',
+      '@nuxtjs/svg',
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
