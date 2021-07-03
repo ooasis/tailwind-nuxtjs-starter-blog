@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="pt-8 pb-8 prose dark:prose-dark max-w-none xl:col-span-2">
-        <nuxt-content :document="article" />
+        <nuxt-content :document="article" class="prose" />
       </div>
     </div>
   </div>
