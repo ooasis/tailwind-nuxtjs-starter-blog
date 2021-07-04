@@ -9,6 +9,7 @@ sections:
 - type: document
   path: sample/content/blog
   label: Post
+  read_only: true
 - type: directory
   path: sample/content
   label: Directories
