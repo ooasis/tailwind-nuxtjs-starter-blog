@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/timelines", {data:[{timelines:{"2021-07":6}}],fetch:{},mutations:void 0});
