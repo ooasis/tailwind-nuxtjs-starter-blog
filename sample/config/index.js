@@ -9,7 +9,7 @@ export default {
   location: 'Seattle, WA',
   avatar: '/img/ooasis.png',
   seo: {
-    baseUrl: 'http://nuxtjs-tailwind-blog-starter.com',
+    baseUrl: 'https://tailwind-nuxtjs-starter-blog.netlify.app',
     name: title,
     description,
     author: [author],
@@ -28,8 +28,8 @@ export default {
     category: 'technology',
   },
   social: {
-    mail: 'ooasis@gmail.com',
-    twitter: 'https://twitter.com/ooasis',
-    facebook: 'https://facebook.com/ooasis',
+    mail: 'donotemailme@ooasis.com',
+    twitter: 'https://twitter.com/',
+    facebook: 'https://facebook.com/',
   },
 }
