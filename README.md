@@ -1,20 +1,51 @@
-# smalltalks
+![tailwind-nuxtjs-banner](sample/static/img/nuxt-tw.png)
 
-## Build Setup
+# Tailwind Nuxtjs Starter Blog
 
-```bash
-# install dependencies
-$ yarn install
+[![GitHub Repo stars](https://img.shields.io/github/stars/ooasis/tailwind-nuxtjs-starter-blog?style=social)](https://GitHub.com/ooasis/tailwind-nuxtjs-starter-blog/stargazers/)
+[![GitHub forks](https://img.shields.io/github/forks/ooasis/tailwind-nuxtjs-starter-blog?style=social)](https://GitHub.com/ooasis/tailwind-nuxtjs-starter-blog/network/)
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+This is a [Nuxt.js](https://nuxtjs.org/), [Tailwind CSS](https://tailwindcss.com/) blogging starter template. This is a port of [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) project.
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+## Examples
 
-# generate static project
-$ yarn generate
-```
+- Demo Blog - coming soon
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Motivation
+
+I just started my blog and wanted something like ___Tailwind Nextjs Starter Blog___ which is simple and allows static site generation.  I am more familiar with Vue and has been happy with NuxtJs with many recent projects. So I decided to port the project to NuxtJs.
+## Features
+
+- Easy styling customization with [Tailwind 2.0](https://blog.tailwindcss.com/tailwindcss-v2)
+- Mobile-friendly view
+- Light and dark theme
+- Support for tags - each unique tag will be its own page
+- SEO friendly with RSS feed, sitemaps and more!
+
+## Sample posts
+
+Will add more as instructions.
+
+## Quick Start Guide
+
+TBD
+## Development
+
+TBD
+## Extend / Customize
+
+TBD
+## Post
+
+TBD
+## Deploy
+
+TBD
+
+**Vercel**  
+
+TBD
+
+**Netlify / Github Pages / Firebase etc.**  
+
+TBD
