@@ -60,7 +60,7 @@
       "
     >
       <div class="pt-10 pb-0 prose dark:prose-dark max-w-none">
-        <nuxt-content :document="article" class="prose" />
+        <nuxt-content :document="article" />
       </div>
     </div>
     <footer>

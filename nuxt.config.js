@@ -22,7 +22,8 @@ export default () => {
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: ['~/assets/css/main.css'],
+    css: [],
+    // css: ['~/assets/css/tailwind.css'],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: ['~/plugins/siteutils.js'],
@@ -66,7 +67,7 @@ export default () => {
     },
 
     tailwindcss: {
-      // jit: true,
+      cssPath: '~/assets/css/tailwind.css',
       // add '~tailwind.config` alias
       exposeConfig: true,
     },
@@ -77,6 +78,12 @@ export default () => {
 
     content: {
       dir: `${process.env.MY_SITE || 'sample'}/content`,
+      liveEdit: false,
+      markdown: {
+        prism: {
+          theme: 'prism-themes/themes/prism-material-oceanic.css',
+        },
+      },
     },
 
     generate: {
