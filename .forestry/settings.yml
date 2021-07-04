@@ -13,8 +13,8 @@ sections:
   label: Directories
   create: all
   match: "**/*"
-upload_dir: sample/uploads
-public_path: "/uploads"
+upload_dir: sample/static
+public_path: ''
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
