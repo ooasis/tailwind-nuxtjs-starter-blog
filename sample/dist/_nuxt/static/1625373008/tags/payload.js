@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/tags", (function(a,b){return {data:[{tags:{Michael:5,Washington:b,Brady:a,Contreras:b,Stephenson:a,Sanchez:a,Pruitt:a,Cook:1,Schmidt:b,Anderson:a}}],fetch:{},mutations:void 0}}(3,2)));
