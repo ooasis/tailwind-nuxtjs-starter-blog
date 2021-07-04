@@ -1,6 +1,7 @@
 const title = 'Tailwind Nuxt Starter Blog'
 const description = 'A simple blog platform built on Nuxt, Tailwind'
 const author = 'ooasis'
+const baseUrl = 'https://tailwind-nuxtjs-starter-blog.netlify.app'
 
 export default {
   title,
@@ -8,8 +9,9 @@ export default {
   identity: 'Programmer',
   location: 'Seattle, WA',
   avatar: '/img/ooasis.png',
+  baseUrl,
   seo: {
-    baseUrl: 'https://tailwind-nuxtjs-starter-blog.netlify.app',
+    baseUrl,
     name: title,
     description,
     author: [author],

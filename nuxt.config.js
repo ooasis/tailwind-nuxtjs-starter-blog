@@ -93,7 +93,7 @@ export default () => {
     seo: siteConfig.seo,
 
     sitemap: {
-      hostname: 'http://192.168.4.26:3123',
+      hostname: `${siteConfig.baseUrl}`,
       gzip: true,
       exclude: ['/about'],
     },
