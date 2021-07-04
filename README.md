@@ -5,7 +5,7 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/ooasis/tailwind-nuxtjs-starter-blog?style=social)](https://GitHub.com/ooasis/tailwind-nuxtjs-starter-blog/stargazers/)
 [![GitHub forks](https://img.shields.io/github/forks/ooasis/tailwind-nuxtjs-starter-blog?style=social)](https://GitHub.com/ooasis/tailwind-nuxtjs-starter-blog/network/)
 
-This is a [Nuxt.js](https://nuxtjs.org/), [Tailwind CSS](https://tailwindcss.com/) blogging starter template. This is a port of [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) project.
+This is a [Nuxt.js](https://nuxtjs.org/), [Tailwind CSS](https://tailwindcss.com/) blogging starter template. It is a port of [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) project.
 
 ## Examples
 
