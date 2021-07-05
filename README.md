@@ -13,7 +13,7 @@ This is a [Nuxt.js](https://nuxtjs.org/), [Tailwind CSS](https://tailwindcss.com
 
 ## Motivation
 
-I just started my blog and wanted something like ___Tailwind Nextjs Starter Blog___ which is simple and allows static site generation.  I am more familiar with Vue and has been happy with NuxtJs with many recent projects. So I decided to port the project to NuxtJs.
+I just started my blog and wanted something like ___Tailwind NextJs Starter Blog___ which is simple and allows static site generation.  I am more familiar with Vue and has been happy with NuxtJs with many recent projects. So I decided to port the project to NuxtJs.
 ## Features
 
 - Easy styling customization with [Tailwind 2.0](https://blog.tailwindcss.com/tailwindcss-v2)

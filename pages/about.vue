@@ -65,7 +65,7 @@
 <script>
 export default {
   async asyncData({ $content }) {
-    const article = await $content('other/about').fetch()
+    const article = await $content('page/about').fetch()
     return {
       article,
     }

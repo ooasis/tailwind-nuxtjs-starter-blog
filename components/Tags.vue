@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap">
+  <div v-if="article.tags" class="flex flex-wrap">
     <NuxtLink
       v-for="tag in article.tags"
       :key="`${article.title}-${tag}`"

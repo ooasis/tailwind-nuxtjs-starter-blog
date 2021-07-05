@@ -85,11 +85,13 @@ export default {
     },
     prev: {
       type: Object,
-      required: true,
+      required: false,
+      default: null,
     },
     next: {
       type: Object,
-      required: true,
+      required: false,
+      default: null,
     },
   },
 }

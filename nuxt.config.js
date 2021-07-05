@@ -77,7 +77,7 @@ export default () => {
     },
 
     content: {
-      dir: `${process.env.MY_SITE || 'sample'}/content`,
+      dir: 'mysite/content',
       liveEdit: false,
       markdown: {
         prism: {
@@ -87,7 +87,7 @@ export default () => {
     },
 
     generate: {
-      dir: `${process.env.MY_SITE || 'sample'}/dist`,
+      dir: 'mysite/dist',
     },
 
     seo: siteConfig.seo,
@@ -95,7 +95,7 @@ export default () => {
     sitemap: {
       hostname: `${siteConfig.baseUrl}`,
       gzip: true,
-      exclude: ['/about'],
+      exclude: ['/404'],
     },
 
     feed: [
@@ -109,7 +109,7 @@ export default () => {
     ],
 
     server: {
-      port: 3123, // default: 3000
+      port: 3000, // default: 3000
       host: '0.0.0.0', // default: localhost
     },
   }
