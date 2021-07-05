@@ -1,12 +1,13 @@
 /* eslint-disable vue/no-v-html */
 <template>
   <a
+    v-if="kind"
     class="text-sm text-gray-500 transition hover:text-gray-600"
     target="_blank"
     rel="noopener noreferrer"
     :href="href"
   >
-    <span class="sr-only">facebook</span>
+    <span class="sr-only">{{ kind }}</span>
 
     <component
       :is="svg"
