@@ -1,4 +1,4 @@
-import siteConfig from '../mysite/config'
+import siteConfig from '../../config'
 
 export default (_, inject) => {
   inject('shortenTitle', (title, maxLen = 20) =>

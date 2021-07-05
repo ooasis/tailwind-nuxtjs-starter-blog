@@ -1,5 +1,5 @@
 import createFeed from './lib/feed'
-import siteConfig from './mysite/config'
+import siteConfig from '../config'
 
 export default () => {
   return {
@@ -18,7 +18,7 @@ export default () => {
 
     dir: {
       assets: 'assets',
-      static: 'mysite/static',
+      static: '../static',
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
@@ -77,7 +77,7 @@ export default () => {
     },
 
     content: {
-      dir: 'mysite/content',
+      dir: '../content',
       liveEdit: false,
       markdown: {
         prism: {
@@ -87,7 +87,7 @@ export default () => {
     },
 
     generate: {
-      dir: 'mysite/dist',
+      dir: '../dist',
     },
 
     seo: siteConfig.seo,
