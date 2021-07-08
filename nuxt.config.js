@@ -1,5 +1,7 @@
-import createFeed from './lib/feed'
 import siteConfig from '../config'
+import createFeed from './lib/feed'
+
+// process.env.DEBUG = 'nuxt:*'
 
 export default () => {
   return {
@@ -58,11 +60,6 @@ export default () => {
         if (ctx.isDev) {
           config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
         }
-        // this is not necessary any more
-        // config.module.rules.push({
-        //   test: /\.md$/i,
-        //   loader: 'ignore-loader',
-        // })
       },
     },
 

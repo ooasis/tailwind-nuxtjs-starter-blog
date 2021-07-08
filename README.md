@@ -1,4 +1,4 @@
-![tailwind-nuxtjs-banner](sample/static/img/nuxt-tw.png)
+![tailwind-nuxtjs-banner](nuxt-tw.png)
 
 # Tailwind Nuxtjs Starter Blog
 
@@ -9,7 +9,7 @@ This is a [Nuxt.js](https://nuxtjs.org/), [Tailwind CSS](https://tailwindcss.com
 
 ## Examples
 
-- Demo Blog - coming soon
+- [Demo Blog](https://tailwind-nuxtjs-starter-blog.netlify.app/)
 
 ## Motivation
 
@@ -22,30 +22,5 @@ I just started my blog and wanted something like ___Tailwind NextJs Starter Blog
 - Support for tags - each unique tag will be its own page
 - SEO friendly with RSS feed, sitemaps and more!
 
-## Sample posts
-
-Will add more as instructions.
-
-## Quick Start Guide
-
-TBD
-## Development
-
-TBD
-## Extend / Customize
-
-TBD
-## Post
-
-TBD
-## Deploy
-
-TBD
-
-**Vercel**  
-
-TBD
-
-**Netlify / Github Pages / Firebase etc.**  
-
-TBD
+## Documentation
+Please checkout related blog posts on [Demo Blog](https://tailwind-nuxtjs-starter-blog.netlify.app/)
