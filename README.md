@@ -1,4 +1,4 @@
-![tailwind-nuxtjs-banner](nuxt-tw.png)
+![logo](https://i.imgur.com/wQTSyTw.png)
 
 # Tailwind Nuxtjs Starter Blog
 
