@@ -1,5 +1,4 @@
-![logo](https://i.imgur.com/wQTSyTw.png)
-
+![logo](https://i.imgur.com/wQTSyTws.png)
 # Tailwind Nuxtjs Starter Blog
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/ooasis/tailwind-nuxtjs-starter-blog?style=social)](https://GitHub.com/ooasis/tailwind-nuxtjs-starter-blog/stargazers/)
