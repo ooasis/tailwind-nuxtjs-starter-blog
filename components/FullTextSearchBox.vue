@@ -54,8 +54,15 @@ export default {
   watch: {
     async searchQuery(searchQuery) {
       const articles = await this.$content('blog')
-        .only(['title', 'description', 'tags', 'slug', 'updatedAt'])
-        .sortBy('updatedAt', 'desc')
+        .only([
+          'title',
+          'description',
+          'tags',
+          'slug',
+          'updatedAt',
+          'createdAt',
+        ])
+        .sortBy('createdAt', 'desc')
         .search(searchQuery)
         .fetch()
       this.onUpdate(articles, this.searchQuery)

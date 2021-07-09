@@ -26,8 +26,8 @@ export default {
   async asyncData({ $content }) {
     const home = await $content('page/home').fetch()
     const articles = await $content('blog')
-      .only(['title', 'description', 'tags', 'slug', 'updatedAt'])
-      .sortBy('updatedAt', 'desc')
+      .only(['title', 'description', 'tags', 'slug', 'updatedAt', 'createdAt'])
+      .sortBy('createdAt', 'desc')
       .limit(pageSize)
       .fetch()
 

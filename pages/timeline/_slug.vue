@@ -22,11 +22,11 @@ export default {
     const startDate = new Date(subTarget + '-01')
     const endDate = new Date(subTarget + '-31')
     const raw = await $content('blog')
-      .only(['title', 'description', 'tags', 'slug', 'updatedAt'])
+      .only(['title', 'description', 'tags', 'slug', 'updatedAt', 'createdAt'])
       .where({
-        updatedAt: { $between: [startDate.valueOf(), endDate.valueOf()] },
+        createdAt: { $between: [startDate.valueOf(), endDate.valueOf()] },
       })
-      .sortBy('updatedAt', 'desc')
+      .sortBy('createdAt', 'desc')
       .skip((curPage - 1) * pageSize)
       .limit(pageSize + 1)
       .fetch()
