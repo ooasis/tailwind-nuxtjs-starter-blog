@@ -29,6 +29,7 @@
           }}</NuxtLink>
         </div>
       </div>
+      <div v-if="!prev"></div>
 
       <div v-if="next">
         <h2

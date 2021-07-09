@@ -62,6 +62,9 @@
       <div class="pt-10 pb-0 prose dark:prose-dark max-w-none">
         <nuxt-content :document="article" />
       </div>
+      <div v-if="$site.comment" class="pt-10">
+        <comments :title="article.title" :data-id="article.slug" />
+      </div>
     </div>
     <footer>
       <prev-next-article :prev="prev" :next="next" />

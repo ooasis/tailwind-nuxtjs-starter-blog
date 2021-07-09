@@ -36,8 +36,11 @@
   </div>
 </template>
 <script>
+import debug from 'debug'
+const deb = debug('pages:blog')
+
 export default {
-  async asyncData({ $content, params }) {
+  async asyncData({ $content, params, from }) {
     const article = await $content('blog', params.slug).fetch()
     const [prev, next] = await $content('blog')
       .only(['title', 'slug'])
@@ -49,12 +52,35 @@ export default {
       article,
       prev,
       next,
+      pageRefresh: !!from,
     }
   },
   head() {
-    return this.$seo({
+    const seoHeaders = this.$seo({
       title: this.article.title,
     })
+
+    if (this.$site.comment) {
+      const headScripts = [
+        {
+          src: `${this.$site.comment.url}/js/embed.min.js`,
+          'data-isso': `${this.$site.comment.url}/`,
+          'data-isso-css': false,
+        },
+      ]
+      return { ...seoHeaders, script: headScripts }
+    } else {
+      return seoHeaders
+    }
+  },
+  mounted() {
+    if (this.pageRefresh && window.Isso) {
+      deb('Refresh comments')
+      window.Isso.init()
+      window.Isso.fetchComments()
+    } else {
+      deb('Skip comment refresh')
+    }
   },
 }
 </script>
