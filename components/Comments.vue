@@ -1,9 +1,13 @@
 <template>
-  <section
-    id="isso-thread"
-    :data-isso-id="dataId"
-    :data-title="title"
-  ></section>
+  <div>
+    <section
+      v-if="isso"
+      id="isso-thread"
+      :data-isso-id="dataId"
+      :data-title="title"
+    ></section>
+    <div v-if="commento" id="commento"></div>
+  </div>
 </template>
 <script>
 export default {
@@ -16,6 +20,12 @@ export default {
       type: String,
       required: true,
     },
+  },
+  data() {
+    return {
+      isso: this.$site.comment && this.$site.comment.isso,
+      commento: this.$site.comment && this.$site.comment.commento,
+    }
   },
 }
 </script>

@@ -40,7 +40,7 @@ import debug from 'debug'
 const deb = debug('pages:blog')
 
 export default {
-  async asyncData({ $content, params, from }) {
+  async asyncData({ $content, $site, params, from }) {
     const article = await $content('blog', params.slug).fetch()
     const [prev, next] = await $content('blog')
       .only(['title', 'slug', 'updatedAt', ''])
@@ -53,31 +53,51 @@ export default {
       prev,
       next,
       pageRefresh: !!from,
+      isIsso: $site.comment && $site.comment.isso,
+      isCommento: $site.comment && $site.comment.commento,
     }
   },
   head() {
     const seoHeaders = this.$seo({
       title: this.article.title,
     })
-
-    if (this.$site.comment) {
-      const headScripts = [
-        {
-          src: `${this.$site.comment.url}/js/embed.min.js`,
-          'data-isso': `${this.$site.comment.url}/`,
-          'data-isso-css': false,
-        },
-      ]
-      return { ...seoHeaders, script: headScripts }
-    } else {
-      return seoHeaders
+    const headScripts = []
+    if (this.isIsso) {
+      headScripts.push({
+        src: `${this.$site.comment.isso}/js/embed.min.js`,
+        'data-isso': `${this.$site.comment.isso}/`,
+        'data-isso-css': false,
+      })
+    } else if (this.isCommento) {
+      headScripts.push({
+        defer: true,
+        src: `${this.$site.comment.commento}/js/commento.js`,
+        'data-auto-init': false,
+        'data-page-id': this.article.slug,
+        'data-id-root': 'commento',
+      })
     }
+    return { ...seoHeaders, script: headScripts }
   },
   mounted() {
-    if (this.pageRefresh && window.Isso) {
-      deb('Refresh comments')
-      window.Isso.init()
-      window.Isso.fetchComments()
+    if (this.isIsso) {
+      if (this.pageRefresh && window.Isso) {
+        deb('Refresh isso')
+        window.Isso.init()
+        window.Isso.fetchComments()
+      }
+    } else if (this.isCommento) {
+      if (!this.pageRefresh && window.commento) {
+        deb('Init commento')
+        window.commento.main()
+      } else if (
+        this.pageRefresh &&
+        window.commento &&
+        window.commento.reInit
+      ) {
+        deb('Refresh commento')
+        window.commento.reInit({ pageId: this.article.slug })
+      }
     } else {
       deb('Skip comment refresh')
     }
