@@ -69,13 +69,7 @@ export default {
         'data-isso-css': false,
       })
     } else if (this.isCommento) {
-      headScripts.push({
-        defer: true,
-        src: `${this.$site.comment.commento}/js/commento.js`,
-        'data-auto-init': false,
-        'data-page-id': this.article.slug,
-        'data-id-root': 'commentobox',
-      })
+      // has been initialized in nuxt.config.js if commento is enabled
     }
     return { ...seoHeaders, script: headScripts }
   },
@@ -87,12 +81,8 @@ export default {
         window.Isso.fetchComments()
       }
     } else if (this.isCommento) {
-      if (!this.inPage && window.commento && window.commento.main) {
-        deb('Init commento')
-        window.commento.main()
-      } else if (this.inPage && window.commento && window.commento.reInit) {
+      if (window.commento && window.commento.reInit) {
         deb('Refresh commento')
-        // window.commento.main()
         window.commento.reInit({
           idRoot: 'commentobox',
           pageId: this.article.slug,
