@@ -24,9 +24,9 @@
           Previous Article
         </h2>
         <div class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">
-          <a :href="`/blog/${prev.slug}`">{{
+          <NuxtLink :to="`/blog/${prev.slug}`">{{
             $shortenTitle(prev.title, 200)
-          }}</a>
+          }}</NuxtLink>
         </div>
       </div>
       <div v-if="!prev"></div>
@@ -44,9 +44,9 @@
           Next Article
         </h2>
         <div class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">
-          <a :href="`/blog/${next.slug}`">{{
+          <NuxtLink :to="`/blog/${next.slug}`">{{
             $shortenTitle(next.title, 200)
-          }}</a>
+          }}</NuxtLink>
         </div>
       </div>
     </div>

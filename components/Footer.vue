@@ -1,5 +1,6 @@
 <template>
   <footer>
+    <div id="commento"></div>
     <div class="flex flex-col items-center mt-16">
       <div class="flex mb-3 space-x-4"></div>
       <div class="flex mb-2 space-x-2 text-sm text-gray-500 dark:text-gray-400">

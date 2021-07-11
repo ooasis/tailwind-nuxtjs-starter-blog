@@ -52,7 +52,7 @@ export default {
       article,
       prev,
       next,
-      pageRefresh: !!from,
+      inPage: from && from.name === 'blog-slug',
       isIsso: $site.comment && $site.comment.isso,
       isCommento: $site.comment && $site.comment.commento,
     }
@@ -74,29 +74,29 @@ export default {
         src: `${this.$site.comment.commento}/js/commento.js`,
         'data-auto-init': false,
         'data-page-id': this.article.slug,
-        'data-id-root': 'commento',
+        'data-id-root': 'commentobox',
       })
     }
     return { ...seoHeaders, script: headScripts }
   },
   mounted() {
     if (this.isIsso) {
-      if (this.pageRefresh && window.Isso) {
+      if (this.inPage && window.Isso) {
         deb('Refresh isso')
         window.Isso.init()
         window.Isso.fetchComments()
       }
     } else if (this.isCommento) {
-      if (!this.pageRefresh && window.commento) {
+      if (!this.inPage && window.commento && window.commento.main) {
         deb('Init commento')
         window.commento.main()
-      } else if (
-        this.pageRefresh &&
-        window.commento &&
-        window.commento.reInit
-      ) {
+      } else if (this.inPage && window.commento && window.commento.reInit) {
         deb('Refresh commento')
-        window.commento.reInit({ pageId: this.article.slug })
+        // window.commento.main()
+        window.commento.reInit({
+          idRoot: 'commentobox',
+          pageId: this.article.slug,
+        })
       }
     } else {
       deb('Skip comment refresh')

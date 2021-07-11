@@ -1,19 +1,40 @@
-import siteConfig from '../config'
+import site from '../config'
 import createFeed from './lib/feed'
 
 // process.env.DEBUG = 'nuxt:*'
+
+const isIsso = site.comment && site.comment.isso
+const isCommento = site.comment && site.comment.commento
+
+const headScripts = []
+if (isIsso) {
+  headScripts.push({
+    src: `${site.comment.isso}/js/embed.min.js`,
+    'data-isso': `${site.comment.isso}/`,
+    'data-isso-css': false,
+  })
+} else if (isCommento) {
+  headScripts.push({
+    defer: true,
+    src: `${site.comment.commento}/js/commento.js`,
+    'data-auto-init': false,
+    'data-page-id': 'global',
+    'data-id-root': 'commentobox',
+  })
+}
 
 export default () => {
   return {
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
       htmlAttrs: {
-        lang: siteConfig.lang,
+        lang: site.lang,
       },
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ],
+      script: headScripts,
     },
 
     target: 'static',
@@ -86,10 +107,10 @@ export default () => {
       dir: '../dist',
     },
 
-    seo: siteConfig.seo,
+    seo: site.seo,
 
     sitemap: {
-      hostname: `${siteConfig.baseUrl}`,
+      hostname: `${site.baseUrl}`,
       gzip: true,
       exclude: ['/404'],
     },
@@ -100,7 +121,7 @@ export default () => {
         create: createFeed,
         cacheTime: 1000 * 60 * 15, // How long should the feed be cached
         type: 'rss2', // Can be: rss2, atom1, json1
-        data: siteConfig,
+        data: site,
       },
     ],
 

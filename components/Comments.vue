@@ -6,7 +6,7 @@
       :data-isso-id="dataId"
       :data-title="title"
     ></section>
-    <div v-if="commento" id="commento"></div>
+    <div v-if="commento" id="commentobox"></div>
   </div>
 </template>
 <script>
