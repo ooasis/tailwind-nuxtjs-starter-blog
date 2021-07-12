@@ -8,11 +8,7 @@ const isCommento = site.comment && site.comment.commento
 
 const headScripts = []
 if (isIsso) {
-  headScripts.push({
-    src: `${site.comment.isso}/js/embed.min.js`,
-    'data-isso': `${site.comment.isso}/`,
-    'data-isso-css': false,
-  })
+  // cannot load script here
 } else if (isCommento) {
   headScripts.push({
     defer: true,

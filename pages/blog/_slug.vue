@@ -43,7 +43,7 @@ export default {
   async asyncData({ $content, $site, params, from }) {
     const article = await $content('blog', params.slug).fetch()
     const [prev, next] = await $content('blog')
-      .only(['title', 'slug', 'updatedAt', ''])
+      .only(['title', 'slug', 'updatedAt', 'createdAt'])
       .sortBy('createdAt', 'desc')
       .surround(params.slug)
       .fetch()
