@@ -129,7 +129,6 @@ if (site.gtag) {
   mainConfig.modules.push('@nuxtjs/google-gtag')
   mainConfig['google-gtag'] = {
     id: site.gtag,
-    debug: true, // enable to track in dev mode
     disableAutoPageTrack: true,
   }
 }

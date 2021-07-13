@@ -55,6 +55,7 @@ export default {
       inPage: from && from.name === 'blog-slug',
       isIsso: $site.comment && $site.comment.isso,
       isCommento: $site.comment && $site.comment.commento,
+      isGTag: $site.gtag,
     }
   },
   head() {
@@ -90,6 +91,12 @@ export default {
       }
     } else {
       deb('Skip comment refresh')
+    }
+    if (this.isGTag) {
+      this.$gtag('config', 'G-9PXSECGJ92', {
+        page_title: this.article.title,
+        page_path: this.$route.fullPath,
+      })
     }
   },
 }

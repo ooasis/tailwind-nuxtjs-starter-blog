@@ -11,14 +11,3 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  mounted() {
-    if (process.browser) {
-      this.$gtag('config', 'G-9PXSECGJ92', {
-        page_path: this.$route.fullPath,
-      })
-    }
-  },
-}
-</script>
