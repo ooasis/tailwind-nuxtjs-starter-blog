@@ -22,7 +22,7 @@ export default {
     const startDate = new Date(subTarget + '-01')
     const endDate = new Date(subTarget + '-31')
     const raw = await $content('blog')
-      .only(['title', 'description', 'tags', 'slug', 'updatedAt', 'createdAt'])
+      .only(['title', 'description', 'tags', 'slug', 'publishedAt'])
       .where({
         createdAt: { $between: [startDate.valueOf(), endDate.valueOf()] },
       })

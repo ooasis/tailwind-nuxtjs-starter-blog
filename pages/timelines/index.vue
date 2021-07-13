@@ -24,11 +24,11 @@
 <script>
 export default {
   async asyncData({ $content }) {
-    const articles = await $content('blog').only('updatedAt').fetch()
+    const articles = await $content('blog').only('publishedAt').fetch()
 
     const timelines = articles
       .flatMap((r) => {
-        return r.updatedAt.substring(0, 7)
+        return r.publishedAt.substring(0, 7)
       })
       .reduce((m, a) => {
         if (a in m) {

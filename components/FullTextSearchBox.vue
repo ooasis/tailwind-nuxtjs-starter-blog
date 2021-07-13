@@ -59,7 +59,7 @@ export default {
           'description',
           'tags',
           'slug',
-          'updatedAt',
+          'publishedAt',
           'createdAt',
         ])
         .sortBy('createdAt', 'desc')

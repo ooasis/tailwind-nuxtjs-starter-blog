@@ -1,8 +1,8 @@
 <template>
   <div class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-    <time :dateTime="article.updatedAt">
+    <time :dateTime="article.publishedAt">
       {{
-        new Date(article.updatedAt).toLocaleDateString('en-US', {
+        new Date(article.publishedAt).toLocaleDateString('en-US', {
           weekday: 'long',
           year: 'numeric',
           month: 'long',

@@ -26,8 +26,8 @@ export default {
   async asyncData({ $content, $parseSlugWithPaging, params }) {
     const [subTarget, curPage] = $parseSlugWithPaging(params.slug)
     const raw = await $content('blog')
-      .only(['title', 'description', 'tags', 'slug', 'updatedAt', 'createdAt'])
-      .sortBy('createdAt', 'desc')
+      .only(['title', 'description', 'tags', 'slug', 'publishedAt'])
+      .sortBy('publishedAt', 'desc')
       .skip((curPage - 1) * pageSize)
       .limit(pageSize + 1)
       .fetch()
