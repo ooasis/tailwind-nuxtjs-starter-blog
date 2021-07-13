@@ -26,7 +26,7 @@ export default {
       .where({
         createdAt: { $between: [startDate.valueOf(), endDate.valueOf()] },
       })
-      .sortBy('createdAt', 'desc')
+      .sortBy('publishedAt', 'desc')
       .skip((curPage - 1) * pageSize)
       .limit(pageSize + 1)
       .fetch()

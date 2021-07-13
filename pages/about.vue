@@ -75,5 +75,13 @@ export default {
       title: 'About',
     })
   },
+  mounted() {
+    if (this.$gtag) {
+      this.$gtag('config', this.$site.gtag, {
+        page_title: 'About',
+        page_path: this.$route.fullPath,
+      })
+    }
+  },
 }
 </script>

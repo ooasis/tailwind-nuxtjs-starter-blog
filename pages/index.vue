@@ -41,5 +41,13 @@ export default {
       title: 'Home Page',
     })
   },
+  mounted() {
+    if (this.$gtag) {
+      this.$gtag('config', this.$site.gtag, {
+        page_title: 'Home',
+        page_path: this.$route.fullPath,
+      })
+    }
+  },
 }
 </script>
