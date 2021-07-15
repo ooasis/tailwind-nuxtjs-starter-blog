@@ -19,7 +19,8 @@
     "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/sitemap": "^2.4.0",
     "core-js": "^3.9.1",
-    "nuxt": "^2.15.7"
+    "nuxt": "^2.15.7",
+    "nuxt-seo": "ooasis/Nuxt-SEO"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.3",

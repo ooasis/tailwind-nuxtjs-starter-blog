@@ -46,12 +46,7 @@ const mainConfig = {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxt/content',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/feed',
-    '~/modules/seo',
-  ],
+  modules: ['@nuxt/content', '@nuxtjs/sitemap', '@nuxtjs/feed', 'nuxt-seo'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

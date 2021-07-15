@@ -60,6 +60,12 @@ export default {
   head() {
     const seoHeaders = this.$seo({
       title: this.article.title,
+      description: this.article.description,
+      keywords: this.article.tags,
+      openGraph: {
+        description: this.article.description,
+        title: this.article.title,
+      },
     })
     const headScripts = []
     if (this.isIsso) {
